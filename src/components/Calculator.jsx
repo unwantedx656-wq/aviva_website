@@ -84,8 +84,12 @@ export default function Calculator() {
               className="absolute -top-12 -translate-x-1/2 transition-all duration-1000 ease-out"
               style={{ left: `${Math.min(cookies * ironPerCookie, 100)}%` }}
             >
-              <div className="bg-[#6B0F1A] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg relative">
-                ¡Excelente!
+              <div className="bg-[#6B0F1A] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg relative whitespace-nowrap">
+                {cookies === 1 && "Buen comienzo"}
+                {cookies === 2 && "¡Genial!"}
+                {cookies === 3 && "¡Excelente!"}
+                {cookies === 4 && "¡Maravilloso!"}
+                {cookies >= 5 && "¡Increíble!"}
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#6B0F1A] rotate-45"></div>
               </div>
             </div>

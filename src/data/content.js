@@ -1,10 +1,7 @@
 export const navLinks = [
   { name: 'Inicio', path: '/' },
   { name: 'Sobre Aviva', path: '/sobre-aviva' },
-  { name: 'Ingredientes', path: '/#ingredientes' },
-  { name: 'Beneficios', path: '/#beneficios' },
-  { name: 'Preguntas Frecuentes', path: '/faq' },
-  { name: 'Contacto', path: '/#contacto' }
+  { name: 'Preguntas Frecuentes', path: '/faq' }
 ];
 
 export const ingredients = [

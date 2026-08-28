@@ -4,10 +4,12 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import FAQPage from './pages/FAQPage';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col font-sans selection:bg-aviva-brandRed selection:text-white">
+    <div className="min-h-screen flex flex-col font-sans selection:bg-[#C22026] selection:text-white">
+      <ScrollToTop />
       <Header />
       
       <main className="flex-grow">

@@ -12,15 +12,9 @@ export default function Home() {
         <Hero />
       </ScrollReveal>
       
-      {/* Divisor superior curvo hacia el banner de ingredientes */}
-      <WaveDivider bgClass="bg-[#FDF7E8]" color="text-[#6B0F1A]" />
-      
       <ScrollReveal>
         <IngredientsBanner />
       </ScrollReveal>
-      
-      {/* Divisor inferior curvo (rotado) volviendo al fondo crema */}
-      <WaveDivider bgClass="bg-[#FDF7E8]" color="text-[#6B0F1A]" rotate={true} />
       
       <ScrollReveal>
         <Benefits />

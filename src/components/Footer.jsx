@@ -37,17 +37,18 @@ export default function Footer() {
         </div>
 
         {/* Enlaces y Redes Sociales */}
-        <div className="flex flex-col gap-6 md:items-end">
-          <div className="flex gap-4">
-            <Link to="/sobre-aviva" className="text-[13px] font-bold uppercase tracking-wider text-white hover:text-[#FFD100] transition-colors">Sobre Aviva</Link>
-            <Link to="/faq" className="text-[13px] font-bold uppercase tracking-wider text-white hover:text-[#FFD100] transition-colors">Preguntas Frecuentes</Link>
-          </div>
-
+        <div className="flex flex-col gap-6">
           <div className="w-full h-[1px] bg-white/20 md:hidden"></div>
 
-          <div className="flex flex-col md:items-end gap-4">
-            <h4 className="font-extrabold text-sm tracking-wider uppercase text-[#FFD100]">Síguenos</h4>
-            <div className="flex gap-3">
+          <div className="flex flex-col gap-4">
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 shrink-0 bg-white/10 rounded-2xl p-3 flex items-center justify-center shadow-xl">
+                <img src="/assets/heart.svg" alt="Heart" className="w-full h-full object-contain filter brightness-0 invert" />
+              </div>
+              <h4 className="font-extrabold text-sm tracking-wider uppercase text-[#FFD100]">Síguenos</h4>
+            </div>
+            
+            <div className="flex gap-4 mt-2">
               {[
                 { id: 'fb', icon: '/assets/facebook.svg' },
                 { id: 'ig', icon: '/assets/instagram.svg' },
@@ -56,7 +57,7 @@ export default function Footer() {
                 <a 
                   key={social.id} 
                   href="#" 
-                  className="w-11 h-11 rounded-full border border-white/20 bg-white/5 flex justify-center items-center p-3 hover:bg-[#9DB328] hover:border-[#9DB328] transition-all duration-300 hover:-translate-y-1 shadow-lg"
+                  className="w-14 h-14 rounded-full border-2 border-white/20 bg-white/5 flex justify-center items-center p-4 hover:bg-[#9DB328] hover:border-[#9DB328] transition-all duration-300 hover:-translate-y-2 shadow-lg"
                 >
                   <img src={social.icon} alt={social.id} className="w-full h-full object-contain filter brightness-0 invert" />
                 </a>
@@ -67,9 +68,8 @@ export default function Footer() {
 
       </div>
 
-      <div className="max-w-7xl mx-auto mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[11px] text-gray-400 font-bold uppercase tracking-widest gap-4 text-center">
-        <p>© {new Date().getFullYear()} Galletas Aviva. Todos los derechos reservados.</p>
-        <p>Nutrición que los hace crecer.</p>
+      <div className="max-w-[90rem] mx-auto mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-[13px] text-gray-300 font-bold tracking-wider gap-4 text-center">
+        <p>© {new Date().getFullYear()} Galletas Aviva. Todos los derechos reservados | UnwantedGG.</p>
       </div>
     </footer>
   );

@@ -4,31 +4,38 @@ import { heroStats } from '../data/content';
 
 export default function Hero() {
   return (
-    <section id="inicio" className="bg-[#FDF7E8] relative pt-12 pb-24 overflow-hidden">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#9DB328] rounded-full blur-[150px] opacity-20 -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#C22026] rounded-full blur-[150px] opacity-10 translate-y-1/3 -translate-x-1/3"></div>
+    <section id="inicio" className="bg-[#FDF7E8] relative pt-12 pb-24 overflow-hidden min-h-[90vh] flex items-center">
+      
+      {/* Fondo CDN con Blur */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1920&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-[#FDF7E8]/85 backdrop-blur-sm"></div>
+      </div>
 
-      <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 mt-8">
+      <div className="max-w-[100rem] w-full mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10 mt-8">
         
         {/* Columna Izquierda - Textos y Stats */}
-        <div className="space-y-8 relative">
+        <div className="space-y-10 relative flex flex-col justify-center">
           
           {/* Título Principal */}
-          <div className="relative">
-            <h1 className="font-display text-5xl md:text-[5.5rem] leading-[1.05] text-[#7A1116] tracking-tight">
-              Pequeñas galletas, <br />
-              grandes cambios
+          <div className="relative w-full">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-7xl xl:text-[6.5rem] leading-[1.05] tracking-tight drop-shadow-md">
+              <span className="text-[#4A2511]">Pequeñas galletas,</span> <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C22026] to-[#7A1116]">
+                grandes cambios
+              </span>
             </h1>
-            <img src="/assets/heart.svg" alt="Heart" className="absolute -right-4 top-2 w-10 h-10 opacity-60 filter grayscale invert-[25%] sepia-[75%] saturate-[4500%] hue-rotate-[340deg]" />
+            <div className="absolute -left-8 top-8 w-20 h-20 bg-[#FFD100] rounded-full mix-blend-multiply filter blur-2xl opacity-60 animate-pulse"></div>
           </div>
 
-          <p className="text-xl md:text-2xl text-[#4A2511] max-w-lg leading-relaxed font-medium">
+          <p className="text-xl md:text-3xl text-[#4A2511] leading-relaxed font-medium max-w-2xl relative z-10">
             Galletas Aviva elaboradas con ingredientes naturales que ayudan a <span className="text-[#C22026] font-extrabold">prevenir y combatir la anemia</span> en niños en etapa escolar.
           </p>
 
           {/* Estadísticas / Features */}
-          <div className="flex flex-wrap gap-8 py-6">
+          <div className="flex flex-wrap gap-8 py-6 relative z-10">
             {heroStats.map(stat => (
               <div key={stat.id} className="flex flex-col items-center text-center group w-28">
                 <div className="w-16 h-16 rounded-full border-2 border-[#C22026] bg-transparent flex items-center justify-center p-3 mb-4 group-hover:bg-[#C22026] transition-all duration-300">
@@ -45,10 +52,17 @@ export default function Hero() {
           </div>
 
           {/* Botón CTA */}
-          <Link to="/sobre-aviva" className="inline-flex bg-[#C22026] hover:bg-[#7A1116] text-white px-8 py-4 rounded-full font-extrabold text-sm md:text-base uppercase tracking-wider transition-all duration-300 hover:-translate-y-1 shadow-[0_10px_20px_rgba(194,32,38,0.3)] hover:shadow-[0_15px_25px_rgba(122,17,22,0.5)] items-center gap-2 group">
-            NUESTRA HISTORIA
-            <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="relative z-10 inline-block w-fit">
+            <div className="absolute inset-0 bg-[#C22026] blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-300 rounded-full"></div>
+            <Link to="/sobre-aviva" className="relative inline-flex bg-gradient-to-r from-[#C22026] to-[#7A1116] hover:from-[#9A161E] hover:to-[#5c0d12] text-white px-10 py-5 lg:px-12 lg:py-6 rounded-full font-extrabold text-base md:text-xl uppercase tracking-wider transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] shadow-[0_15px_30px_rgba(194,32,38,0.4)] hover:shadow-[0_20px_40px_rgba(122,17,22,0.6)] items-center gap-4 group overflow-hidden">
+              <span className="relative z-10">NUESTRA HISTORIA</span>
+              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center relative z-10 group-hover:translate-x-2 transition-transform duration-300">
+                <ChevronRight className="w-6 h-6 text-white" />
+              </div>
+              {/* Brillo en hover */}
+              <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 z-0"></div>
+            </Link>
+          </div>
 
           {/* Flecha y texto dibujado ("Hechas con ingredientes reales") */}
           <div className="hidden lg:block absolute -right-24 top-1/2 -rotate-12 w-40 text-center">

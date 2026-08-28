@@ -11,42 +11,41 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section id="faq" className="py-20 px-6 max-w-4xl mx-auto mb-10 relative">
-      <div className="absolute top-0 right-10 w-32 h-32 bg-[#FFD100] rounded-full blur-3xl opacity-20 -z-10"></div>
+    <section id="faq" className="w-full max-w-5xl mx-auto mb-10 relative bg-white/80 backdrop-blur-md p-10 xl:p-16 rounded-[3rem] shadow-2xl border border-white/50">
       
-      <div className="text-center mb-16">
-        <h3 className="font-display text-4xl md:text-5xl text-[#6B0F1A] tracking-wide relative inline-block">
+      <div className="text-center mb-16 xl:mb-24">
+        <h3 className="font-display text-5xl md:text-6xl xl:text-7xl text-[#6B0F1A] tracking-wide relative inline-block drop-shadow-sm">
           Preguntas Frecuentes
-          <img src="/assets/heart.svg" alt="Heart" className="absolute -left-12 -top-4 w-10 h-10 opacity-60 filter grayscale invert-[25%] sepia-[75%] saturate-[4500%] hue-rotate-[340deg] -rotate-12" />
+          <img src="/assets/heart.svg" alt="Heart" className="absolute -left-16 -top-6 w-12 h-12 xl:w-16 xl:h-16 opacity-60 filter grayscale invert-[25%] sepia-[75%] saturate-[4500%] hue-rotate-[340deg] -rotate-12" />
         </h3>
-        <p className="text-[#4A2511] font-medium mt-4 text-lg">Todo lo que necesitas saber sobre las galletas Aviva.</p>
+        <p className="text-[#4A2511] font-medium mt-6 text-xl xl:text-2xl max-w-2xl mx-auto">Todo lo que necesitas saber sobre las galletas Aviva.</p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-8">
         {faqs.map((faq, idx) => (
           <div 
             key={idx} 
-            className={`bg-white border-2 rounded-[2rem] overflow-hidden transition-all duration-300 shadow-sm
-              ${openIndex === idx ? 'border-[#C22026] shadow-[0_10px_30px_rgba(194,32,38,0.1)]' : 'border-[#FDF7E8] hover:border-[#9DB328]/50 hover:shadow-md'}`}
+            className={`bg-white border-2 rounded-[2rem] xl:rounded-[3rem] overflow-hidden transition-all duration-300 shadow-lg
+              ${openIndex === idx ? 'border-[#C22026] shadow-[0_15px_40px_rgba(194,32,38,0.15)]' : 'border-[#FDF7E8] hover:border-[#9DB328]/50 hover:shadow-xl'}`}
           >
             <button 
-              className="w-full px-8 py-6 text-left font-extrabold text-[#4A2511] flex justify-between items-center focus:outline-none group"
+              className="w-full px-8 xl:px-12 py-8 xl:py-10 text-left font-extrabold text-[#4A2511] flex justify-between items-center focus:outline-none group"
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
             >
-              <span className={`text-base md:text-lg transition-colors ${openIndex === idx ? 'text-[#C22026]' : 'group-hover:text-[#9DB328]'}`}>
+              <span className={`text-xl md:text-2xl xl:text-3xl pr-8 transition-colors leading-snug ${openIndex === idx ? 'text-[#C22026]' : 'group-hover:text-[#9DB328]'}`}>
                 {faq.q}
               </span>
-              <div className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500
+              <div className={`shrink-0 w-12 h-12 xl:w-16 xl:h-16 rounded-full flex items-center justify-center transition-all duration-500 shadow-md
                 ${openIndex === idx ? 'bg-[#C22026] rotate-180' : 'bg-[#FDF7E8] group-hover:bg-[#9DB328]'}`}
               >
-                <ChevronDown className={`w-5 h-5 transition-colors ${openIndex === idx ? 'text-white' : 'text-[#6B0F1A] group-hover:text-white'}`} />
+                <ChevronDown className={`w-6 h-6 xl:w-8 xl:h-8 transition-colors ${openIndex === idx ? 'text-white' : 'text-[#6B0F1A] group-hover:text-white'}`} />
               </div>
             </button>
             <div 
-              className={`px-8 overflow-hidden transition-all duration-500 ease-in-out bg-gradient-to-b from-white to-[#FDF7E8]/30
-                ${openIndex === idx ? 'max-h-48 pb-8 opacity-100' : 'max-h-0 opacity-0'}`}
+              className={`px-8 xl:px-12 overflow-hidden transition-all duration-500 ease-in-out bg-gradient-to-b from-white to-[#FDF7E8]/30
+                ${openIndex === idx ? 'max-h-64 pb-10 xl:pb-12 opacity-100' : 'max-h-0 opacity-0'}`}
             >
-              <p className="text-[15px] font-medium text-[#4A2511]/80 leading-relaxed pt-2 border-t border-[#FDF7E8]">{faq.a}</p>
+              <p className="text-lg xl:text-xl font-medium text-[#4A2511]/90 leading-relaxed pt-4 border-t-2 border-[#FDF7E8]">{faq.a}</p>
             </div>
           </div>
         ))}
