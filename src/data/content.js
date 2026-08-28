@@ -1,4 +1,11 @@
-export const navLinks = ['Inicio', 'Sobre Aviva', 'Ingredientes', 'Beneficios', 'Impacto', 'Contacto'];
+export const navLinks = [
+  { name: 'Inicio', path: '/' },
+  { name: 'Sobre Aviva', path: '/sobre-aviva' },
+  { name: 'Ingredientes', path: '/#ingredientes' },
+  { name: 'Beneficios', path: '/#beneficios' },
+  { name: 'Preguntas Frecuentes', path: '/faq' },
+  { name: 'Contacto', path: '/#contacto' }
+];
 
 export const ingredients = [
   { id: 1, name: 'Sangre de pollo', desc: 'Fuente natural de hierro de alta calidad.', img: '/assets/pollo.png' },

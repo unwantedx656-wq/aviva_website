@@ -2,28 +2,32 @@ import { ingredients } from '../data/content';
 
 export default function IngredientsBanner() {
   return (
-    <section id="ingredientes" className="bg-aviva-darkRed text-white py-12 px-8 w-full shadow-[inset_0_10px_20px_rgba(0,0,0,0.2)] relative overflow-hidden">
-      {/* Patrón de fondo sutil (opcional para dar textura al rojo) */}
-      <div className="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:20px_20px]"></div>
-
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+    <section id="ingredientes" className="bg-[#6B0F1A] text-white py-14 px-8 w-full relative overflow-hidden z-20">
+      
+      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row items-center justify-between gap-12 relative z-10">
         
-        <div className="lg:w-1/4 text-center lg:text-left">
-          <h3 className="font-display text-3xl leading-tight drop-shadow-md">
-            INGREDIENTES QUE<br/>NUTREN DE VERDAD
+        {/* Título de Ingredientes */}
+        <div className="xl:w-[25%] flex flex-col items-center xl:items-start text-center xl:text-left relative">
+          <h3 className="font-display text-2xl md:text-3xl leading-snug tracking-wide uppercase">
+            Ingredientes que<br/>nutren de verdad
           </h3>
+          <img src="/assets/heart.svg" alt="Heart" className="absolute -right-8 bottom-0 w-8 h-8 opacity-70 filter brightness-0 invert" />
         </div>
 
-        <div className="lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Lista de Ingredientes */}
+        <div className="xl:w-[75%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
           {ingredients.map(ing => (
-            <div key={ing.id} className="flex items-center gap-4 group cursor-pointer p-2 rounded-xl hover:bg-white/5 transition-colors duration-300">
-              <div className="w-20 h-20 shrink-0 bg-white rounded-full flex justify-center items-center p-3 shadow-lg group-hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-all duration-300">
-                <img src={ing.img} alt={ing.name} className="w-full h-full object-contain drop-shadow-sm" />
+            <div key={ing.id} className="flex flex-col sm:flex-row items-center gap-4 group cursor-default">
+              
+              <div className="w-[85px] h-[85px] shrink-0 bg-white rounded-full flex justify-center items-center p-2 shadow-[0_0_15px_rgba(255,255,255,0.1)] group-hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] group-hover:scale-105 transition-all duration-300">
+                <img src={ing.img} alt={ing.name} className="w-full h-full object-cover rounded-full" />
               </div>
-              <div>
-                <h4 className="font-extrabold text-[15px] mb-1 group-hover:text-[#FFD100] transition-colors">{ing.name}</h4>
-                <p className="text-xs text-gray-100 leading-relaxed font-medium">{ing.desc}</p>
+              
+              <div className="text-center sm:text-left">
+                <h4 className="font-bold text-[15px] mb-1 group-hover:text-[#FFD100] transition-colors">{ing.name}</h4>
+                <p className="text-[11px] text-gray-200 leading-relaxed font-medium">{ing.desc}</p>
               </div>
+
             </div>
           ))}
         </div>
